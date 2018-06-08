@@ -1,3 +1,10 @@
+package deors.demos.microservices.bookrecservice;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+
 @Entity
 public class Book {
 
@@ -5,7 +12,12 @@ public class Book {
     private String title;
     private String author;
 
+    public Book() {
+        super();
+    }
+
     public Book(Long id, String title, String author) {
+        this();
         this.id = id;
         this.title = title;
         this.author = author;
@@ -13,6 +25,10 @@ public class Book {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -29,5 +45,10 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Book [id=" + id + ", title=" + title + ", author=" + author + "]";
     }
 }
